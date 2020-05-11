@@ -22,6 +22,8 @@ mvc:
    getMissionPath: /settlementEngine/mission/
    getMissionsPath: /settlementEngine/missions
    deleteMissionPath: /settlementEngine/mission/
+   av:
+      getPricesPath: /prices
    iex:
       getAllSymbolsPath: /iex/symbols
       getLastTradedPricePath: /iex/lastTradedPrice
@@ -33,6 +35,7 @@ jms:
 
 # Set debug level logging for the IEX Client so that Feign requests and responses are logged out
 log.level.org.galatea.starter.service.IEXClient: DEBUG
+log.level.org.galatea.starter.service.AVClient: DEBUGlast
 # Set info level logging for the autoconfigure package so that it doesn't print out the entire
 # CONDITIONS EVALUATION REPORT on startup
 logging.level.org.springframework.boot.autoconfigure: INFO
@@ -56,6 +59,7 @@ spring:
       username: sa
       password:
    rest:
+      avBasePath: https://www.alphavantage.co
       iexBasePath: https://api.iextrading.com/1.0
 # set debug to get spring to log the classpath (and other things) on startup
 debug: true
