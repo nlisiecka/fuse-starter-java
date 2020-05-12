@@ -1,27 +1,42 @@
 package org.galatea.starter.domain;
 
-import java.time.LocalDateTime;
-import java.util.Date;
-import java.util.Map;
+import com.fasterxml.jackson.annotation.JsonAlias;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import javax.persistence.Entity;
+import javax.persistence.Id;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-@AllArgsConstructor(access = AccessLevel.PUBLIC)
-@NoArgsConstructor(access = AccessLevel.PUBLIC)
+@AllArgsConstructor(access = AccessLevel.PRIVATE)
+@NoArgsConstructor(access = AccessLevel.PRIVATE)
 @Data
 @Builder
 public class DailyStockPrices {
 
-    public String symbol;
-    public String date;
-    public String open;
-    public String high;
-    public String low;
-    public String close;
-    public String volume;
+    private String symbol;
+    private String date;
+
+    @JsonProperty("open")
+    @JsonAlias("1. open")
+    private Double open;
+
+    @JsonProperty("high")
+    @JsonAlias("2. high")
+    private Double high;
+
+    @JsonProperty("low")
+    @JsonAlias("3. low")
+    private Double low;
+
+    @JsonProperty("close")
+    @JsonAlias("4. close")
+    private Double close;
+
+    @JsonProperty("volume")
+    @JsonAlias("5. volume")
+    private Integer volume;
 
 }
