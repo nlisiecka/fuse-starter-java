@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonAlias;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.IdClass;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -14,9 +15,14 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
 @Data
 @Builder
+@Entity
+@IdClass(DailyStockPricesId.class)
 public class DailyStockPrices {
 
+    @Id
     private String symbol;
+
+    @Id
     private String date;
 
     @JsonProperty("open")

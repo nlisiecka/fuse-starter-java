@@ -17,6 +17,7 @@ public interface AVClient {
   PricesData getPrices(
       @RequestParam(required = true) String function,
       @RequestParam(required = true) String symbol,
+      @RequestParam String outputsize,
       @RequestParam(required = true) String apikey);
 }
 
